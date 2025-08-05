@@ -1,0 +1,12 @@
+README.md
+setup.py
+MlPipeline.egg-info/PKG-INFO
+MlPipeline.egg-info/SOURCES.txt
+MlPipeline.egg-info/dependency_links.txt
+MlPipeline.egg-info/top_level.txt
+src/__init__.py
+src/data_ingestion.py
+src/data_preprocessing.py
+src/feature_engineering.py
+src/model_building.py
+src/model_evaluation.py
