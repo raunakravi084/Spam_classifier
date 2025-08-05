@@ -43,9 +43,13 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
 def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> None:
     try:
         data_path = os.path.join(data_path, 'raw')
-        os.makedirs(data_path, exist_ok=True)
-        train_data.to_csv(os.path.join(data_path, "train.csv"), index=False)
-        test_data.to_csv(os.path.join(data_path, "test.csv"), index=False)
+        abs_data_path = os.path.abspath(data_path)
+        print(f"DEBUG: Will create directory at {abs_data_path}")
+        os.makedirs(abs_data_path, exist_ok=True)
+        print(f"DEBUG: Directory exists? {os.path.exists(abs_data_path)}")
+        train_data.to_csv(os.path.join(abs_data_path, "train.csv"), index=False)
+        test_data.to_csv(os.path.join(abs_data_path, "test.csv"), index=False)
+        
     except Exception as e:
         print(f"Error: An unexpected error occurred while saving the data.")
         print(e)
@@ -58,8 +62,8 @@ def main():
         PROJECT_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, ".."))  # go one level up
 
         # Path to the CSV
-        #csv_path = os.path.join(PROJECT_ROOT, "spam.csv")
-        csv_path = "https://raw.githubusercontent.com/raunakravi084/Spam-classifier/main/spam.csv"
+        csv_path = os.path.join(PROJECT_ROOT, "spam.csv")
+        #csv_path = "https://raw.githubusercontent.com/raunakravi084/Spam_classifier/main/spam.csv"
         print(f"Trying to open CSV at: {os.path.abspath(csv_path)}")
         df = load_data(path=csv_path)
         final_df = preprocess_data(df)
