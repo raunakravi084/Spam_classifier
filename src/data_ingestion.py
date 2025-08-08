@@ -3,12 +3,14 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
+import warnings
+warnings.filterwarnings("ignore")
 
 def load_data(path: str) -> pd.DataFrame:
     try:
         #print(f"DEBUG: Checking if file exists at {path}: {os.path.exists(path)}")
         df = pd.read_csv(path,on_bad_lines='skip',encoding='latin-1')
-        print(df.head(2))
+        #print(df.head(2))
         return df
     except pd.errors.ParserError as e:
         print(f"Error: Failed to parse the CSV file from {path}.")
@@ -44,9 +46,9 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
     try:
         data_path = os.path.join(data_path, 'raw')
         abs_data_path = os.path.abspath(data_path)
-        print(f"DEBUG: Will create directory at {abs_data_path}")
+        #print(f"DEBUG: Will create directory at {abs_data_path}")
         os.makedirs(abs_data_path, exist_ok=True)
-        print(f"DEBUG: Directory exists? {os.path.exists(abs_data_path)}")
+        #print(f"DEBUG: Directory exists? {os.path.exists(abs_data_path)}")
         train_data.to_csv(os.path.join(abs_data_path, "train.csv"), index=False)
         test_data.to_csv(os.path.join(abs_data_path, "test.csv"), index=False)
         
@@ -57,6 +59,7 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 
 def main():
     try:
+        print(f"{'<'*20} Starting Data Ingestion {'>'*20}")
         # Get absolute path to project root
         PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))  # gets path to src/
         PROJECT_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, ".."))  # go one level up

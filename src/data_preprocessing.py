@@ -1,13 +1,13 @@
 import numpy as np
 import pandas as pd
-
 import os
-
 import re
 import nltk
 import string
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer, WordNetLemmatizer
+import warnings
+warnings.filterwarnings("ignore")
 
 # fetch the data from data/raw
 train_data = pd.read_csv('./data/raw/train.csv')
@@ -79,5 +79,6 @@ data_path = os.path.join("data","processed")
 
 os.makedirs(data_path, exist_ok=True)
 
+print(f"{'<'*20} Inside data_preprocessing, Saving the files {'>'*20}")
 train_processed_data.to_csv(os.path.join(data_path,"train_processed.csv"),index=False)
 test_processed_data.to_csv(os.path.join(data_path,"test_processed.csv"),index=False)
