@@ -1,7 +1,7 @@
-## SPAM or HAM classifier with DVC
+## SPAM or HAM Text classifier with DVC
 
 #### Description
-ClassifAI is a Streamlit web application that allows users to input email text and receive a real-timeclassification (spam or not spam) using a logistic regression model. The app is designed foreducational purposes, demonstrating basic machine learning concepts.
+It is a Streamlit web application that allows users to input email text and receive a real-time classification (spam or not spam) using a logistic regression model. The app is designed foreducational purposes, demonstrating basic machine learning concepts.
 
 ### Technical Specifications
 #### Architecture Overview
@@ -12,10 +12,10 @@ Data: Public spam email dataset (e.g., UCI SMS Spam Collection)
 
 ### Data Flow   
 ##### flowchart TD 
-A[User Input Email Text] --> B[Preprocessing] 
-B --> C[Vectorization (e.g., CountVectorizer)] 
-C --> D[Logistic Regression Model] 
-D --> E[Prediction Output]
+- A[User Input Email Text] --> B[Preprocessing] 
+- B --> C[Vectorization (e.g., CountVectorizer)] 
+- C --> D[Logistic Regression Model] 
+- D --> E[Prediction Output]
 
 ## How to run?
 
