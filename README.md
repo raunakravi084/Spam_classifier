@@ -1,12 +1,43 @@
-# SPAM or HAM classifier with DVC
+## SPAM or HAM classifier with DVC
+
+#### Description
+ClassifAI is a Streamlit web application that allows users to input email text and receive a real-timeclassification (spam or not spam) using a logistic regression model. The app is designed foreducational purposes, demonstrating basic machine learning concepts.
+
+### Technical Specifications
+#### Architecture Overview
+Frontend: Streamlit web app
+Backend: Python (scikit-learn, pandas)
+Model: Logistic Regression (scikit-learn)
+Data: Public spam email dataset (e.g., UCI SMS Spam Collection)
+
+### Data Flow   
+##### flowchart TD 
+A[User Input Email Text] --> B[Preprocessing] 
+B --> C[Vectorization (e.g., CountVectorizer)] 
+C --> D[Logistic Regression Model] 
+D --> E[Prediction Output]
 
 ## How to run?
 
+### STEP 01- Create a conda environment after opening the repository
+```bash
 conda create -n test1 python=3.11 -y
+```
 
+```bash
 conda activate test1
+```
 
+### STEP 02- install the requirements
+```bash
 pip install -r requirements.txt
+```
+
+Now run,
+```bash
+streamlit run app.py
+```
+
 
 
 ## DVC Commands

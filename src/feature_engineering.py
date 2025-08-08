@@ -4,6 +4,7 @@ import os
 from sklearn.feature_extraction.text import CountVectorizer
 import warnings
 warnings.filterwarnings("ignore")
+import pickle
 
 # fetch the data from data/processed
 train_data = pd.read_csv('./data/processed/train_processed.csv')
@@ -39,9 +40,15 @@ test_df['label'] = y_test
 # store the data inside data/features
 data_path = os.path.join("data","features")
 
-os.makedirs(data_path)
+os.makedirs(data_path,exist_ok=True)
 
 print(f"{'<'*20} Inside feature_engineering, Saving the files {'>'*20}")
-train_df.to_csv(os.path.join(data_path,"train_bow.csv"))
-test_df.to_csv(os.path.join(data_path,"test_bow.csv"))
+
+# Save the fitted vectorizer for later use in the Streamlit app
+vectorizer_path = os.path.join(data_path, "vectorizer.pkl")
+with open(vectorizer_path, "wb") as f:
+    pickle.dump(vectorizer, f)
+    
+train_df.to_csv(os.path.join(data_path,"train_bow.csv"),index=False)
+test_df.to_csv(os.path.join(data_path,"test_bow.csv"),index=False)
 

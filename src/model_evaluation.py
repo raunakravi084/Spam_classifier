@@ -12,8 +12,9 @@ warnings.filterwarnings("ignore")
 clf = pickle.load(open('data/model/model.pkl','rb'))
 test_data = pd.read_csv('./data/features/test_bow.csv')
 
-X_test = test_data.iloc[:,0:-1].values
-y_test = test_data.iloc[:,-1].values
+# Drop the label column for features
+X_test = test_data.drop(columns= 'label', axis=1).values
+y_test = test_data['label'].values
 
 y_pred = clf.predict(X_test)
 y_pred_proba = clf.predict_proba(X_test)[:, 1]
