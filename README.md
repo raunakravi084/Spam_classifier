@@ -1,4 +1,4 @@
-# Build & Track ML Pipelines with DVC
+# SPAM or HAM classifier with DVC
 
 ## How to run?
 
