@@ -3,6 +3,9 @@
 #### Description
 It is a Streamlit web application that allows users to input email text and receive a real-time classification (spam or not spam) using a logistic regression model. The app is designed foreducational purposes, demonstrating basic machine learning concepts.
 
+<img width="1032" height="796" alt="image" src="https://github.com/user-attachments/assets/a5aaeb80-5d5d-4f8d-a807-28f5f9e7b79b" />
+
+
 ### Technical Specifications
 #### Architecture Overview
 Frontend: Streamlit web app
